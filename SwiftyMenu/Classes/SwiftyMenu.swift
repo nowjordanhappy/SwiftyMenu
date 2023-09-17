@@ -132,8 +132,7 @@ final public class SwiftyMenu: UIView {
     /// Configure `SwiftyMenu` with attributes.
     public func configure(with attributes: SwiftyMenuAttributes) {
         self.attributes = attributes
-        self.setPlaceholder()
-        selectButton.layoutIfNeeded()
+        self.setupSelectButton()
         self.layoutIfNeeded()
     }
     
@@ -266,11 +265,13 @@ extension SwiftyMenu {
     }
     
     private func setupSelectButton() {
-        self.addSubview(selectButton)
-        
-        selectButton.snp.makeConstraints { maker in
-            maker.leading.trailing.top.equalTo(self)
-            maker.height.equalTo(height)
+         if !setuped{
+            self.addSubview(selectButton)
+            
+            selectButton.snp.makeConstraints { maker in
+                maker.leading.trailing.top.equalTo(self)
+                maker.height.equalTo(height)
+            }
         }
 
         let color = attributes.placeHolderStyle.placeHolderValues.textColor
