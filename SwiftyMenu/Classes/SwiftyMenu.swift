@@ -133,6 +133,7 @@ final public class SwiftyMenu: UIView {
     public func configure(with attributes: SwiftyMenuAttributes) {
         self.attributes = attributes
         setupSelectButton()
+        self.layoutIfNeeded()
     }
     
     /// Expand or Collapse `SwiftyMenu` from Code.
